@@ -23,6 +23,12 @@ Checks occur at greybox, representative integrated scene, and whole-delivery sta
 - **Playback-based review:** inspect full actions or loops at normal speed, exercise real inputs, and distinguish a successful render from a visually convincing or playable result.
 - **Measured optimization:** profile the target device before changing geometry, animation, shaders, or rendering architecture.
 
+## AI-led motion discovery and review
+
+The agent uses the actual scene, references, materials, structure, and player behavior to identify meaningful ambient motion, action-driven responses, secondary motion, and objects that should stay stable. Users do not need to enumerate every effect. This is a reasoning workflow using available model and inspection capabilities, not a bundled recognition model or a new inference service.
+
+Review checks missing expected motion as well as implemented clips: normal-speed visibility, pivots and contact, rhythm and variation, cause-and-response timing, loop seams, interruptions, unintended movement, and runtime consistency. Still images and changing parameters do not establish successful motion. See [motion review](references/motion-review.md).
+
 ## When to use it
 
 | Request | How the skill helps |
