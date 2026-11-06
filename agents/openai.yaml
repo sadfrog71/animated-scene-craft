@@ -1,6 +1,6 @@
 interface:
   display_name: "3D 动画场景制作"
-  short_description: "制作游戏与其他三维场景的视觉、自然动态和交互动作，验证导出一致性及实际播放"
-  default_prompt: "使用 $animated-scene-craft 制作或优化这个 3D 动画场景，结合用途设计视觉重点、关键细节与动作；用于游戏时接通实际交互，验证导出和播放效果。"
+  short_description: "先确认效果图，再制作三维场景与游戏动画，通过实景对照、交互和播放验证完成度"
+  default_prompt: "使用 $animated-scene-craft 制作或优化这个 3D 动画场景，先生成或复用已确认效果图，再制作场景与动作，分阶段对照实际画面并验证交互和播放完成度。"
 policy:
   allow_implicit_invocation: true

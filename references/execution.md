@@ -28,6 +28,8 @@ python3 "$SKILL_DIR/scripts/scene_tool.py" probe
 
 `threejs-qa-release` 只在相应游戏验证/发布任务需要时使用，不为了查看一个场景自动启动发布流程。概念图和材质参考不能代替实际模型渲染。
 
+新建或重大视觉改版先走 [视觉目标与完成度校验](visual-completion.md) 的效果图确认；已有批准参考直接复用。检查、测量和必要灰模可提前用于判断可实现性，但不能替代确认后再展开的精细制作。
+
 ## 2. 检查已有 Blender 场景
 
 ```bash

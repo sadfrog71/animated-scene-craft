@@ -6,6 +6,14 @@ An open-source **Codex agent skill for 3D scene creation, game animation, Blende
 
 Use it to build or refine interactive environments, character and creature animation, animated props, architectural scenes, product presentations, or offline animation. The workflow is engine-agnostic; bundled execution helpers target Blender and FFmpeg. The skill instructions are currently written in Chinese; this README provides an English overview and usage examples.
 
+## Visual approval and completion checks
+
+For a new scene or a major art-direction change, the skill first generates actual ImageGen concept images, reviews them, and presents a recommended version for user confirmation before detailed or bulk production. Existing approved targets are reused. Explicit greybox-only tasks, technical prototypes, or requests to skip concepts keep their stated scope; silence is not approval.
+
+Production compares three sources: the approved visual target, the previous actual render (when available), and the current actual render. Comparable viewpoints and game states make differences actionable. ImageGen paintovers may suggest improvements, but do not count as implementation evidence or silently replace the approved target.
+
+Checks occur at greybox, representative integrated scene, and whole-delivery stages. Content, spatial composition, art finish, motion/interaction, and runtime fidelity receive separate PASS / PARTIAL / FAIL / BLOCKED conclusions with evidence. There is no invented overall completion percentage. See [visual completion workflow](references/visual-completion.md).
+
 ## What it improves
 
 - **Intentional scenes:** derive composition, spatial relationships, close-up detail, and interaction reachability from what a viewer or player will do.
@@ -65,10 +73,10 @@ Give the agent the project or source assets, intended activity, visual reference
 ## Workflow and delivery
 
 1. Inspect available assets, the existing project, tools, target device, and authorized scope.
-2. Establish the scene's visual priorities, meaningful detail, motion causes, and interaction needs.
-3. Implement a representative scene or interaction before expanding content.
+2. Generate and confirm visual targets when needed; establish observable visual priorities and motion/interaction needs.
+3. Check the greybox, then finish a representative integrated scene or interaction before expanding content.
 4. Verify source-to-runtime compatibility and any required export transformations.
-5. Review normal-speed playback and relevant player interactions on the target surface.
+5. Compare approved targets and actual renders; review normal-speed playback and player interactions on the target surface.
 6. Deliver editable source or runnable output, necessary resource/version information, and clearly stated verification limits.
 
 Deliverables depend on the request: `.blend` source, scene scripts, runtime assets, a runnable game or page, rendered frames, or a preview video. These are produced during a task; the repository does not include demonstration assets or a finished game.
@@ -100,6 +108,7 @@ Those packages are **not bundled or automatically installed**. Their availabilit
 
 - [SKILL.md](SKILL.md): core scene and animation decisions; Codex entry point.
 - [references/execution.md](references/execution.md): tool selection and Blender/FFmpeg commands.
+- [references/visual-completion.md](references/visual-completion.md): ImageGen concept approval, comparable evidence, stage checks, and completion criteria.
 - [references/realtime-animation.md](references/realtime-animation.md): behavior/motion ownership, animation clips, reproducible exports, timing, performance, and playtesting.
 - `scripts/scene_tool.py` and `scripts/blender_job.py`: execution helpers.
 - `agents/openai.yaml`: Codex UI metadata and invocation configuration.
